@@ -23,19 +23,23 @@ function App() {
     }, []);
 
     return isLoading ? (
-        <span>En cous de chargement...</span>
+        <span>En cours de chargement...</span>
     ) : (
         <>
             <Header datas={datas} />
-            {datas.categories.map((category, index) => {
-                return (
-                    <div key={index}>
-                        {category.meals.length > 0 && (
-                            <Category category={category}></Category>
-                        )}
-                    </div>
-                );
-            })}
+            <div className="app-div-main">
+                <div className="app-div-main-margin">
+                    {datas.categories.map((category, index) => {
+                        return (
+                            <div key={index}>
+                                {category.meals.length > 0 && (
+                                    <Category category={category}></Category>
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
         </>
     );
 }

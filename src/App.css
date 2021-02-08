@@ -1,15 +1,151 @@
-.header-logo {
-    height: 43px;
+:root {
+    --header-width: 1200px;
+    --description-and-category-width: 820px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
 }
 
+.header-logo {
+    height: 43px;
+    margin-left: calc((100vw - var(--header-width)) / 2);
+    margin-bottom: 4px;
+}
+.header-horizontal-line {
+    width: calc(100% - 2px);
+    border: 1px solid #e5e5e5;
+}
+
+.header-restaurant-text-and-image {
+    margin-left: calc((100vw - var(--header-width)) / 2);
+    width: var(--header-width);
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.header-restaurant-text {
+    width: var(--description-and-category-width);
+    margin-right: 30px;
+}
+.header-restaurant-text > h1 {
+    color: #2e3333;
+    font-size: 2rem;
+}
+
+.header-restaurant-text > div {
+    color: #868a8a;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
 .header-restaurant-image {
     width: 355px;
     height: 198px;
     object-fit: cover;
+    border-radius: 5px;
+}
+
+.app-div-main {
+    background-color: #f3f5f5;
+}
+.app-div-main-margin {
+    margin-left: calc((100vw - var(--header-width)) / 2);
+    width: 840px;
+}
+
+.category-div-main {
+    padding-top: 0.01rem;
+    margin-top: 0px;
+    /* border: 2px solid red; */
+}
+
+h2 {
+    padding-top: 0px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.category-meals {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-meal {
+    width: 400px;
+    height: 160px;
+    border-radius: 5px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-left: 0.9rem;
+    box-sizing: border-box;
+    margin-right: 20px;
+    margin-bottom: 25px;
+}
+
+.category-meal:hover {
+    box-shadow: 0 22px 24px 0 rgb(46 51 51 / 7%);
+}
+
+.category-meal-text {
+    width: 130px;
+    height: 130px;
+    object-fit: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    padding-top: 15px;
+    font-size: 1.17em;
+    font-weight: 400;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.category-meal-description {
+    font-size: 0.9rem;
+    /* color: red; */
+
+    color: #808484;
+    line-height: 1.3rem;
+    height: 2.6rem;
+    overflow: hidden;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-top: 8px;
+}
+
+.category-price-and-popularity {
+    display: flex;
+    margin-top: 15px;
+    /* margin-left: 1rem; */
+    align-items: center;
+}
+
+.category-price {
+    color: #808484;
+    font-size: 1.1rem;
+    margin-right: 15px;
+}
+.category-popular {
+    display: flex;
+    align-items: center;
+    color: #ff8000;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+.category-star {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
 
 .category-meal-picture {
     width: 130px;
     height: 130px;
     object-fit: center;
+    margin: 15px;
+    border-radius: 5px;
 }

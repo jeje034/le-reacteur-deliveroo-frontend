@@ -11,13 +11,19 @@ const Header = ({ datas }) => {
                     fill="#00CDBD"
                 ></path>
             </svg>
-            <h1>{datas.restaurant.name}</h1>
-            <div>{datas.restaurant.description}</div>
-            <img
-                className="header-restaurant-image"
-                src="https://f.roocdn.com/images/menus/17697/header-image.jpg"
-                alt="Une table avec des plats du restaurant"
-            />
+            <div className="header-horizontal-line"></div>
+            <div className="header-restaurant-text-and-image">
+                <div className="header-restaurant-text">
+                    <h1>{datas.restaurant.name}</h1>
+                    <div>{datas.restaurant.description}</div>
+                </div>
+
+                <img
+                    className="header-restaurant-image"
+                    src="https://f.roocdn.com/images/menus/17697/header-image.jpg"
+                    alt="Une table avec des plats du restaurant"
+                />
+            </div>
         </>
     );
 };
