@@ -237,6 +237,7 @@ h3 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .basket-plus-less-button {
@@ -276,9 +277,25 @@ h3 {
     text-align: end;
     /* border: white solid 1px; */
 }
+
+.basket-horizontal-line {
+    width: calc(100% - 2 * var(--basket-margin) -2px);
+    margin-left: 10px;
+    border: 1px solid #e5e5e5;
+    margin-bottom: 18px;
+}
+
 .basket-sums {
     margin-left: var(--basket-margin);
     margin-right: var(--basket-margin);
     display: flex;
     justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.basket-last-line {
+    font-size: 19px;
+    font-weight: 600;
+    padding-top: 3px;
+    color: #2e3333;
 }

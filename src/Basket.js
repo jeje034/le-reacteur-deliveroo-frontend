@@ -64,17 +64,19 @@ const Basket = ({ basket, setBasket, updateBasket }) => {
             )}
             {subtotal > 0 && (
                 <div>
+                    <div className="basket-horizontal-line"></div>
                     <div className="basket-sums">
                         <div>Sous-total</div>
-                        <div>{subtotal + " €"}</div>
+                        <div>{subtotal.toFixed(2) + " €"}</div>
                     </div>
                     <div className="basket-sums">
                         <div>Frais de livraison</div>
                         <div>2.50 €</div>
                     </div>
-                    <div className="basket-sums">
+                    <div className="basket-horizontal-line"></div>
+                    <div className="basket-sums basket-last-line">
                         <div>Total</div>
-                        <div>{subtotal + 2.5 + " €"}</div>
+                        <div>{(subtotal + 2.5).toFixed(2) + " €"}</div>
                     </div>
                 </div>
             )}
