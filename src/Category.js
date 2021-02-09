@@ -1,11 +1,21 @@
-const Category = ({ category }) => {
+const Category = ({ category, basket, setBasket, updateBasket }) => {
+    const handleClick = (meal) => {
+        updateBasket(meal.id, meal.title, 1, meal.price);
+    };
+
     return (
         <div className="category-div-main">
             <h2>{category.name}</h2>
             <div className="category-meals">
                 {category.meals.map((meal) => {
                     return (
-                        <div key={meal.id} className="category-meal">
+                        <div
+                            key={meal.id}
+                            className="category-meal"
+                            onClick={() => {
+                                handleClick(meal);
+                            }}
+                        >
                             <div>
                                 <h3>{meal.title}</h3>
                                 <p className="category-meal-description">
