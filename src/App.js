@@ -9,7 +9,8 @@ import { useMediaQuery } from "react-responsive";
 function App() {
     const [datas, setDatas] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-    const isMediumScreen = useMediaQuery({ maxWidth: 1250 });
+    const isMediumScreenOrLess = useMediaQuery({ maxWidth: 1250 });
+    const isSmallScreen = useMediaQuery({ maxWidth: 870 });
 
     const fetchDatas = async () => {
         const response = await axios.get(
@@ -32,7 +33,9 @@ function App() {
             <div className="app-div-main">
                 <div
                     className={
-                        isMediumScreen
+                        isSmallScreen
+                            ? "app-div-main-margin app-div-main-margin-small-screen"
+                            : isMediumScreenOrLess
                             ? "app-div-main-margin app-div-main-margin-medium-screen"
                             : "app-div-main-margin"
                     }

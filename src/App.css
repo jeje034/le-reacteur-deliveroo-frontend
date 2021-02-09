@@ -77,6 +77,10 @@ body {
 .app-div-main-margin-medium-screen {
     margin-left: var(--margin-left-medium-screen);
 }
+.app-div-main-margin-small-screen {
+    margin-left: var(--margin-left-medium-screen);
+    width: 500px;
+}
 
 .category-div-main {
     padding-top: 0.01rem;
