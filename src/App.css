@@ -33,6 +33,7 @@
 
 .header-restaurant-text-and-image-medium-screen {
     margin-left: var(--margin-left-medium-screen);
+    width: 100%;
 }
 
 .header-restaurant-text {
@@ -41,7 +42,7 @@
 }
 .header-restaurant-medium-width {
     width: calc(
-        100vw - var(--restaurant-image-width) - 30px -
+        100vw - var(--restaurant-image-width) - 70px -
             var(--margin-left-medium-screen)
     );
 }
