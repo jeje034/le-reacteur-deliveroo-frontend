@@ -1,8 +1,15 @@
+import { useMediaQuery } from "react-responsive";
+
 const Header = ({ datas }) => {
+    const isMediumScreen = useMediaQuery({ maxWidth: 1250 });
     return (
         <>
             <svg
-                className="header-logo"
+                className={
+                    isMediumScreen
+                        ? "header-logo header-logo-medium-screen"
+                        : "header-logo"
+                }
                 viewBox="0 0 300 80"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -12,8 +19,20 @@ const Header = ({ datas }) => {
                 ></path>
             </svg>
             <div className="header-horizontal-line"></div>
-            <div className="header-restaurant-text-and-image">
-                <div className="header-restaurant-text">
+            <div
+                className={
+                    isMediumScreen
+                        ? "header-restaurant-text-and-image header-restaurant-text-and-image-medium-screen"
+                        : "header-restaurant-text-and-image"
+                }
+            >
+                <div
+                    className={
+                        isMediumScreen
+                            ? "header-restaurant-text header-restaurant-medium-width"
+                            : "header-restaurant-text"
+                    }
+                >
                     <h1>{datas.restaurant.name}</h1>
                     <div>{datas.restaurant.description}</div>
                 </div>

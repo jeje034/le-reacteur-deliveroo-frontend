@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./Header";
 import Category from "./Category";
+import { useMediaQuery } from "react-responsive";
 
 function App() {
     const [datas, setDatas] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const isMediumScreen = useMediaQuery({ maxWidth: 1250 });
 
     const fetchDatas = async () => {
         const response = await axios.get(
@@ -28,7 +30,13 @@ function App() {
         <>
             <Header datas={datas} />
             <div className="app-div-main">
-                <div className="app-div-main-margin">
+                <div
+                    className={
+                        isMediumScreen
+                            ? "app-div-main-margin app-div-main-margin-medium-screen"
+                            : "app-div-main-margin"
+                    }
+                >
                     {datas.categories.map((category, index) => {
                         return (
                             <div key={index}>

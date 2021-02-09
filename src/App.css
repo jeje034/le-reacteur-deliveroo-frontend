@@ -1,6 +1,8 @@
 :root {
     --header-width: 1200px;
     --description-and-category-width: 820px;
+    --margin-left-medium-screen: 5px;
+    --restaurant-image-width: 355px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
@@ -11,6 +13,11 @@
     margin-left: calc((100vw - var(--header-width)) / 2);
     margin-bottom: 4px;
 }
+
+.header-logo-medium-screen {
+    margin-left: var(--margin-left-medium-screen);
+}
+
 .header-horizontal-line {
     width: calc(100% - 2px);
     border: 1px solid #e5e5e5;
@@ -24,10 +31,21 @@
     margin-bottom: 30px;
 }
 
+.header-restaurant-text-and-image-medium-screen {
+    margin-left: var(--margin-left-medium-screen);
+}
+
 .header-restaurant-text {
     width: var(--description-and-category-width);
     margin-right: 30px;
 }
+.header-restaurant-medium-width {
+    width: calc(
+        100vw - var(--restaurant-image-width) - 30px -
+            var(--margin-left-medium-screen)
+    );
+}
+
 .header-restaurant-text > h1 {
     color: #2e3333;
     font-size: 2rem;
@@ -39,7 +57,7 @@
     line-height: 1.5;
 }
 .header-restaurant-image {
-    width: 355px;
+    width: var(--restaurant-image-width);
     height: 198px;
     object-fit: cover;
     border-radius: 5px;
@@ -52,6 +70,9 @@
     margin-left: calc((100vw - var(--header-width)) / 2);
     width: 840px;
 }
+.app-div-main-margin-medium-screen {
+    margin-left: var(---margin-left-medium-screen);
+}
 
 .category-div-main {
     padding-top: 0.01rem;
@@ -60,9 +81,13 @@
 }
 
 h2 {
-    padding-top: 0px;
+    padding-top: 20px;
     font-size: 1.5em;
     font-weight: bold;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-left: var(--margin-left-medium-screen);
+    padding-bottom: 20px;
 }
 
 .category-meals {
