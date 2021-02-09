@@ -10,7 +10,15 @@ const Basket = ({ basket, setBasket, updateBasket }) => {
 
     return (
         <div className="basket-card">
-            <button className="basket-validation">Valider mon panier</button>
+            <button
+                className={
+                    basket && basket.length > 0 && basket[0].title
+                        ? "basket-validation"
+                        : "basket-validation basket-validation-not-activated"
+                }
+            >
+                Valider mon panier
+            </button>
 
             {basket && basket.length > 0 && basket[0].title ? (
                 basket.map((meal, indice) => {
@@ -50,7 +58,9 @@ const Basket = ({ basket, setBasket, updateBasket }) => {
                     );
                 })
             ) : (
-                <div>"Votre panier est vide"</div>
+                <div className="basket-empty">
+                    <div>Votre panier est vide</div>
+                </div>
             )}
             {subtotal > 0 && (
                 <div>
