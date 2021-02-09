@@ -34,6 +34,9 @@ function App() {
             if (newBasket[i].id === id) {
                 mealFound = true;
                 newBasket[i].quantity += quantitytoAdd;
+                if (newBasket[i].quantity <= 0) {
+                    newBasket.splice(i, 1);
+                }
                 break;
             }
         }
