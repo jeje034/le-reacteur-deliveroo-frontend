@@ -329,7 +329,7 @@ h3 {
 }
 
 .basket-horizontal-line {
-    width: calc(100% - 2 * var(--basket-margin-inside) -2px);
+    width: calc(100% - 2 * var(--basket-margin-inside) - 2px);
     margin-left: 10px;
     border: 1px solid #e5e5e5;
     margin-bottom: 18px;
