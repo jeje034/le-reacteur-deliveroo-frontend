@@ -1,6 +1,6 @@
 import "./App.css";
-
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import Header from "./Header";
 import Content from "./Content";
@@ -10,6 +10,7 @@ function App() {
     const [datas, setDatas] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [basket, setBasket] = useState([]);
+    const isMediumScreenOrLess = useMediaQuery({ maxWidth: 1250 });
 
     useEffect(() => {
         //
@@ -56,8 +57,13 @@ function App() {
     ) : (
         <>
             <Header datas={datas} />
-            <div className="content-and-basket">
+            {isMediumScreenOrLess ? (
                 <div>
+                    <Basket
+                        basket={basket}
+                        setBasket={setBasket}
+                        updateBasket={updateBasket}
+                    />
                     <Content
                         datas={datas}
                         basket={basket}
@@ -65,14 +71,25 @@ function App() {
                         updateBasket={updateBasket}
                     />
                 </div>
-                <div>
-                    <Basket
-                        basket={basket}
-                        setBasket={setBasket}
-                        updateBasket={updateBasket}
-                    />
+            ) : (
+                <div className="content-and-basket">
+                    <div>
+                        <Content
+                            datas={datas}
+                            basket={basket}
+                            setBasket={setBasket}
+                            updateBasket={updateBasket}
+                        />
+                    </div>
+                    <div>
+                        <Basket
+                            basket={basket}
+                            setBasket={setBasket}
+                            updateBasket={updateBasket}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
         </>
     );
 }

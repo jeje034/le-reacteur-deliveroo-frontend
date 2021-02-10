@@ -1,4 +1,8 @@
+import { useMediaQuery } from "react-responsive";
+
 const Category = ({ category, basket, setBasket, updateBasket }) => {
+    const isSmallScreen = useMediaQuery({ maxWidth: 870 });
+
     const handleClick = (meal) => {
         updateBasket(meal.id, meal.title, 1, meal.price);
     };
@@ -11,14 +15,24 @@ const Category = ({ category, basket, setBasket, updateBasket }) => {
                     return (
                         <div
                             key={meal.id}
-                            className="category-meal"
+                            className={
+                                isSmallScreen
+                                    ? "category-meal category-meal-small-screen"
+                                    : "category-meal"
+                            }
                             onClick={() => {
                                 handleClick(meal);
                             }}
                         >
                             <div>
                                 <h3>{meal.title}</h3>
-                                <p className="category-meal-description">
+                                <p
+                                    className={
+                                        isSmallScreen
+                                            ? "category-meal-description category-meal-description-small-screen"
+                                            : "category-meal-description"
+                                    }
+                                >
                                     {meal.description}
                                 </p>
                                 <div className="category-price-and-popularity">
@@ -48,7 +62,11 @@ const Category = ({ category, basket, setBasket, updateBasket }) => {
                                     <img
                                         src={meal.picture}
                                         alt="Meal"
-                                        className="category-meal-picture"
+                                        className={
+                                            isSmallScreen
+                                                ? "category-meal-picture category-meal-picture-small-screen"
+                                                : "category-meal-picture"
+                                        }
                                     ></img>
                                 )}
                             </div>

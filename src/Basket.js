@@ -1,7 +1,10 @@
 import lessPicture from "./assets/Less.PNG";
 import plusPicture from "./assets/Plus.PNG";
+import { useMediaQuery } from "react-responsive";
 
 const Basket = ({ basket, setBasket, updateBasket }) => {
+    const isSmallScreen = useMediaQuery({ maxWidth: 870 });
+
     const handleClick = (meal, quantityToAdd) => {
         updateBasket(meal.id, meal.title, quantityToAdd, meal.price);
     };
@@ -9,7 +12,13 @@ const Basket = ({ basket, setBasket, updateBasket }) => {
     let subtotal = 0;
 
     return (
-        <div className="basket-card">
+        <div
+            className={
+                isSmallScreen
+                    ? "basket-card basket-card-small-screen"
+                    : "basket-card"
+            }
+        >
             <button
                 className={
                     basket && basket.length > 0 && basket[0].title

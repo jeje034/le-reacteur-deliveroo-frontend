@@ -1,9 +1,10 @@
 :root {
     --header-width: 1200px;
     --description-and-category-width: 820px;
-    --margin-left-medium-screen: 12px;
+    --margin-left-medium-small-screen: 12px;
     --restaurant-image-and-basket-width: 355px;
-    --basket-margin: 10px;
+    --basket-margin-inside: 10px;
+    --left-and-more-padding-meal: 0.9rem;
 
     --basket-color: #00cdbd;
 
@@ -21,6 +22,12 @@ body {
     padding-bottom: 30px;
     /* border: 1px solid rebeccapurple; */
 }
+
+.header-main-small-screen {
+    padding-bottom: 20px;
+    /* border: 1px solid rebeccapurple; */
+}
+
 .header-logo {
     height: 43px;
     margin-left: calc((100vw - var(--header-width)) / 2);
@@ -28,7 +35,7 @@ body {
 }
 
 .header-logo-medium-screen {
-    margin-left: var(--margin-left-medium-screen);
+    margin-left: var(--margin-left-medium-small-screen);
 }
 
 .header-horizontal-line {
@@ -44,8 +51,15 @@ body {
 }
 
 .header-restaurant-text-and-image-medium-screen {
-    margin-left: var(--margin-left-medium-screen);
-    width: calc(100% - var(--margin-left-medium-screen));
+    margin-left: var(--margin-left-medium-small-screen);
+    width: calc(100% - var(--margin-left-medium-small-screen));
+}
+
+.header-restaurant-text-and-image-small-screen {
+    margin-left: var(--margin-left-medium-small-screen);
+    width: calc(100% - var(--margin-left-medium-small-screen));
+    display: block;
+    padding-top: 0;
 }
 
 .header-restaurant-text {
@@ -55,8 +69,12 @@ body {
 .header-restaurant-medium-width {
     width: calc(
         100vw - var(--restaurant-image-and-basket-width) - 70px -
-            var(--margin-left-medium-screen)
+            var(--margin-left-medium-small-screen)
     );
+}
+.header-restaurant-small-width {
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .header-restaurant-text > h1 {
@@ -76,6 +94,10 @@ body {
     border-radius: 5px;
 }
 
+.header-restaurant-image-small-screen {
+    width: calc(100vw - var(--margin-left-medium-small-screen) * 2);
+}
+
 .content-and-basket {
     display: flex;
     justify-content: flex-start;
@@ -89,10 +111,10 @@ body {
     width: 840px;
 }
 .content-div-main-margin-medium-screen {
-    margin-left: var(--margin-left-medium-screen);
+    margin-left: var(--margin-left-medium-small-screen);
 }
 .content-div-main-margin-small-screen {
-    margin-left: var(--margin-left-medium-screen);
+    margin-left: var(--margin-left-medium-small-screen);
     width: 500px;
 }
 
@@ -108,7 +130,7 @@ h2 {
     font-weight: bold;
     margin-block-start: 0px;
     margin-block-end: 0px;
-    margin-left: var(--margin-left-medium-screen);
+    margin-left: var(--margin-left-medium-small-screen);
     padding-bottom: 20px;
 }
 
@@ -126,23 +148,32 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     cursor: pointer;
-    padding-left: 0.9rem;
+    padding-left: var(--left-and-more-padding-meal);
     box-sizing: border-box;
     margin-right: 20px;
     margin-bottom: 25px;
+}
+.category-meal-small-screen {
+    display: block;
+    width: calc(100vw - 20px);
+    height: auto;
+    padding-bottom: var(--left-and-more-padding-meal);
+    /* background-color: #00cdbd; */
 }
 
 .category-meal:hover {
     box-shadow: 0 22px 24px 0 rgb(46 51 51 / 7%);
 }
 
+/* 
+A supprimer car pas utilisé
 .category-meal-text {
     width: 130px;
     height: 130px;
     object-fit: center;
     display: flex;
     flex-direction: column;
-}
+} */
 
 h3 {
     padding-top: 15px;
@@ -153,15 +184,19 @@ h3 {
 }
 .category-meal-description {
     font-size: 0.9rem;
-    /* color: red; */
-
-    color: #808484;
     line-height: 1.3rem;
     height: 2.6rem;
     overflow: hidden;
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-top: 8px;
+    color: #808484;
+    /* color: red; */
+}
+.category-meal-description-small-screen {
+    height: auto;
+    overflow: inherit;
+    padding-right: var(--left-and-more-padding-meal);
 }
 
 .category-price-and-popularity {
@@ -197,6 +232,13 @@ h3 {
     border-radius: 5px;
 }
 
+.category-meal-picture-small-screen {
+    width: calc(100% - var(--left-and-more-padding-meal));
+    height: inherit;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
 .basket-card {
     background-color: white;
     width: var(--restaurant-image-and-basket-width);
@@ -205,11 +247,19 @@ h3 {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
+    box-shadow: 0 22px 24px 0 rgb(46 51 51 / 7%);
     /* border: solid 1px green; */
 }
 
+.basket-card-small-screen {
+    width: calc(100vw - var(--margin-left-medium-small-screen) * 2);
+    margin-left: var(--margin-left-medium-small-screen);
+    margin-bottom: 35px;
+    box-shadow: 0 12px 12px 0 rgb(46 51 51 / 7%);
+}
+
 .basket-validation {
-    margin: var(--basket-margin);
+    margin: var(--basket-margin-inside);
     border-radius: 5px;
     padding: 1rem;
     background: var(--basket-color);
@@ -249,7 +299,7 @@ h3 {
 }
 
 .basket-less-button {
-    margin-left: var(--basket-margin);
+    margin-left: var(--basket-margin-inside);
 }
 
 .basket-meal-title {
@@ -262,7 +312,7 @@ h3 {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin-right: var(--basket-margin);
+    margin-right: var(--basket-margin-inside);
     /* background-color: red; */
 }
 .basket-quantity-for-1-meal {
@@ -279,15 +329,15 @@ h3 {
 }
 
 .basket-horizontal-line {
-    width: calc(100% - 2 * var(--basket-margin) -2px);
+    width: calc(100% - 2 * var(--basket-margin-inside) -2px);
     margin-left: 10px;
     border: 1px solid #e5e5e5;
     margin-bottom: 18px;
 }
 
 .basket-sums {
-    margin-left: var(--basket-margin);
-    margin-right: var(--basket-margin);
+    margin-left: var(--basket-margin-inside);
+    margin-right: var(--basket-margin-inside);
     display: flex;
     justify-content: space-between;
     margin-bottom: 22px;

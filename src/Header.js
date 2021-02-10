@@ -2,9 +2,16 @@ import { useMediaQuery } from "react-responsive";
 
 const Header = ({ datas }) => {
     const isMediumScreenOrLess = useMediaQuery({ maxWidth: 1250 });
+    const isSmallScreen = useMediaQuery({ maxWidth: 870 });
     return (
         <>
-            <div className="header-main">
+            <div
+                className={
+                    isSmallScreen
+                        ? "header-main header-main-small-screen"
+                        : "header-main"
+                }
+            >
                 <svg
                     className={
                         isMediumScreenOrLess
@@ -22,14 +29,18 @@ const Header = ({ datas }) => {
                 <div className="header-horizontal-line"></div>
                 <div
                     className={
-                        isMediumScreenOrLess
+                        isSmallScreen
+                            ? "header-restaurant-text-and-image header-restaurant-text-and-image-small-screen"
+                            : isMediumScreenOrLess
                             ? "header-restaurant-text-and-image header-restaurant-text-and-image-medium-screen"
                             : "header-restaurant-text-and-image"
                     }
                 >
                     <div
                         className={
-                            isMediumScreenOrLess
+                            isSmallScreen
+                                ? "header-restaurant-text header-restaurant-small-width"
+                                : isMediumScreenOrLess
                                 ? "header-restaurant-text header-restaurant-medium-width"
                                 : "header-restaurant-text"
                         }
@@ -39,7 +50,11 @@ const Header = ({ datas }) => {
                     </div>
 
                     <img
-                        className="header-restaurant-image"
+                        className={
+                            isSmallScreen
+                                ? "header-restaurant-image header-restaurant-image-small-screen"
+                                : "header-restaurant-image"
+                        }
                         src="https://f.roocdn.com/images/menus/17697/header-image.jpg"
                         alt="Une table avec des plats du restaurant"
                     />
